@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="portraitHeaderView" id="2At-Wb-hlN" customClass="TPGPortraitHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysf-Ub-zMx">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="82" id="Or8-lW-q5i"/>
+                        <constraint firstAttribute="height" constant="82" id="wp5-aI-wfL"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omni Media Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBP-d9-Qs3">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18612345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2I-el-dzO">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-Tl-oPR">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Us6-YZ-Leg"/>
+                        <constraint firstAttribute="width" constant="68" id="V7r-eo-RVd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <state key="normal" title="手机好友">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oX-Hz-D1W">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="13" id="cTs-cd-QCR"/>
+                        <constraint firstAttribute="height" constant="13" id="wtY-HL-pvA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                    <state key="normal" backgroundImage="modify.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="r2I-el-dzO" firstAttribute="leading" secondItem="ysf-Ub-zMx" secondAttribute="trailing" constant="13" id="55K-aQ-nog"/>
+                <constraint firstItem="aGe-Tl-oPR" firstAttribute="top" secondItem="2At-Wb-hlN" secondAttribute="top" constant="100" id="E39-hz-x9t"/>
+                <constraint firstItem="2oX-Hz-D1W" firstAttribute="centerY" secondItem="WBP-d9-Qs3" secondAttribute="centerY" id="L0w-Sq-4Ev"/>
+                <constraint firstItem="WBP-d9-Qs3" firstAttribute="leading" secondItem="ysf-Ub-zMx" secondAttribute="trailing" constant="13" id="NOa-FW-xDf"/>
+                <constraint firstItem="ysf-Ub-zMx" firstAttribute="centerY" secondItem="2At-Wb-hlN" secondAttribute="centerY" id="Tfg-2L-FFi"/>
+                <constraint firstItem="r2I-el-dzO" firstAttribute="top" secondItem="WBP-d9-Qs3" secondAttribute="bottom" constant="13" id="cS7-0g-lAK"/>
+                <constraint firstItem="ysf-Ub-zMx" firstAttribute="leading" secondItem="2At-Wb-hlN" secondAttribute="leading" constant="20" id="don-N6-gUj"/>
+                <constraint firstItem="WBP-d9-Qs3" firstAttribute="top" secondItem="2At-Wb-hlN" secondAttribute="top" constant="48" id="gwJ-wc-trz"/>
+                <constraint firstItem="2oX-Hz-D1W" firstAttribute="leading" secondItem="WBP-d9-Qs3" secondAttribute="trailing" constant="8" id="sqs-Cl-45H"/>
+                <constraint firstAttribute="trailing" secondItem="aGe-Tl-oPR" secondAttribute="trailing" constant="29" id="vWS-ra-eNo"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnModify" destination="2oX-Hz-D1W" id="TgW-G1-bOk"/>
+                <outlet property="btnPhoneFriends" destination="aGe-Tl-oPR" id="Xsu-rL-bom"/>
+                <outlet property="phoneNumberLabel" destination="r2I-el-dzO" id="Slf-y5-o08"/>
+                <outlet property="portraitImageView" destination="ysf-Ub-zMx" id="6lB-tQ-q9d"/>
+                <outlet property="userNameLabel" destination="WBP-d9-Qs3" id="2b0-lF-gNh"/>
+            </connections>
+            <point key="canvasLocation" x="-745.5" y="691.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="modify.png" width="128" height="128"/>
+    </resources>
+</document>
