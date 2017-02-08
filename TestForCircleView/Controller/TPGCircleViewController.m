@@ -56,8 +56,8 @@
                          @"01-01 00:00",
                          @"12-25 20:00",
                          @"12-21 20:00"];
-    NSArray *arrContent = @[@"赞了该视频,虽然是外传电影但它如此优秀，可以和《帝国反击战》相提并论了，我们的语言和我们的文化一样混乱",
-                            @"虽然是外传电影但它如此优秀，可以和《帝国反击战》相提并论",
+    NSArray *arrContent = @[@"为你介绍各大球队，关于他们的辉煌历史。并深入到每一个球迷，他们是如何以自己的方式去支持球队。观看比赛时，他们又有着怎样的心路历程。感受属于足球的独特魅力。",
+                            @"赞了该视频。虽然是外传电影但它如此优秀，可以和《帝国反击战》相提并论",
                             @"我们的语言和我们的文化一样混乱",
                             @"踩了该视频",
                             @"节目很精彩",
@@ -75,7 +75,7 @@
     for (int i = 0; i < 8; i ++) {
         TPGTreandInfo *trendInfo = [[TPGTreandInfo alloc] init];
         trendInfo.userName = @"Omni Media Cloud";
-        trendInfo.programDescription = @"当一位来自过去的怨灵将他卷入复仇之中的时候，久保平静低调的生活瞬间掀起巨浪，在神灵和妖怪的追杀之下，久保是否能够突破重围";
+        trendInfo.programDescription = @"波普先生是一个极富工作热情的高效率商人，在公司里备受重用，但却常常因此牺牲了与家人共处的时光。这个冬天，当他正在全力以赴地争取一位伤脑筋的合伙人时，前期阿曼达也准备开始自己的下一段恋情。然而这一切随着一个快递箱子的到来而发生了意想不到的逆转-波普先生从已故的父亲那里继承到了最不寻常的财产；一只活企鹅，就在他束手无策的时候，竟然又收到了另外五只活企鹅";
         trendInfo.programTitle = [arrProgramTitle objectAtIndex:i];
         trendInfo.time = [arrTime objectAtIndex:i];
         trendInfo.content = [arrContent objectAtIndex:i];
@@ -87,6 +87,7 @@
         TPGContactInfo *contactInfo = [[TPGContactInfo alloc] init];
         contactInfo.contactGivenName = [NSString stringWithFormat:@"关注%d",i];
         contactInfo.contactFamilyName = [NSString stringWithFormat:@"关注%d",i];
+        contactInfo.potraitUrl = @"1";
         [arrFollow addObject:contactInfo];
     }
     // 粉丝
@@ -95,6 +96,7 @@
         TPGContactInfo *contactInfo = [[TPGContactInfo alloc] init];
         contactInfo.contactGivenName = [NSString stringWithFormat:@"粉丝%d",i];
         contactInfo.contactFamilyName = [NSString stringWithFormat:@"粉丝%d",i];
+        contactInfo.potraitUrl = @"3";
         [arrFans addObject:contactInfo];
     }
     ///
@@ -168,7 +170,7 @@
     } else {
         [self.view insertSubview:_baseView belowSubview:self.view];
         CGRect rect = self.baseView.frame;
-        rect.origin.y = topBarHeight - headerImgHeight - 64;
+        rect.origin.y = - headerImgHeight;
         self.baseView.frame = rect;
     }
 
@@ -183,7 +185,7 @@
             [self.view insertSubview:_baseView belowSubview:self.view];
         }
         CGRect rect = self.baseView.frame;
-        rect.origin.y = topBarHeight - headerImgHeight - 64;
+        rect.origin.y = - headerImgHeight;
         self.baseView.frame = rect;
     } else {
         if (![_baseView.superview isEqual:tableView]) {
@@ -231,7 +233,7 @@
             if ([key isEqualToString:addressStr]) {
                 _offsetYDict[key] = @(offsetY);
             } else if ([_offsetYDict[key] floatValue] <= headerImgHeight - topBarHeight) {
-                _offsetYDict[key] = @(headerImgHeight - topBarHeight + 64);
+                _offsetYDict[key] = @(headerImgHeight);
             }
         }];
     } else {
@@ -258,7 +260,7 @@
             if ([key isEqualToString:addressStr]) {
                 _offsetYDict[key] = @(offsetY);
             } else if ([_offsetYDict[key] floatValue] <= headerImgHeight - topBarHeight) {
-                _offsetYDict[key] = @(headerImgHeight - topBarHeight + 64);
+                _offsetYDict[key] = @(headerImgHeight);
             }
         }];
     } else {

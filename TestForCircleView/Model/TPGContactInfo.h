@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *contactNickName;
 @property (nonatomic, strong) NSDictionary *contactPhones;
 @property (nonatomic, strong) NSDictionary *contactPostalAddress;
+@property (nonatomic, strong) NSString *potraitUrl;
 
 @end

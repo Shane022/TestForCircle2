@@ -17,7 +17,7 @@
 
 - (void)reloadContactInfo:(TPGContactInfo *)contactInfo
 {
-    self.portraitImageView.image = [UIImage imageNamed:@"1"];
+    self.portraitImageView.image = [UIImage imageNamed:contactInfo.potraitUrl];
     self.nickNameLabel.text = @"测试昵称";
     self.contactNameLabel.text = [NSString stringWithFormat:@"手机好友:%@ %@", contactInfo.contactGivenName, contactInfo.contactFamilyName];
 }

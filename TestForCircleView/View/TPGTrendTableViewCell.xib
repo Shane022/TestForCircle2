@@ -46,6 +46,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当一位来自过去的怨灵将他卷入复仇之中的时候，久保平静低调的生活瞬间掀起巨浪，在神灵和妖怪的追杀之下，久保是否能够突破重围" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6u-XZ-jr5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="217" id="IrX-ab-7Ho"/>
+                                    <constraint firstAttribute="height" constant="53" id="a32-hg-mmH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
