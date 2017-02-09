@@ -119,8 +119,8 @@
 		01658F0B1E4965DF001E0D35 = {
 			isa = PBXGroup;
 			children = (
-				01658F151E4965E0001E0D35 /* Products */,
 				01658F161E4965E0001E0D35 /* TestForCircleView */,
+				01658F151E4965E0001E0D35 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
