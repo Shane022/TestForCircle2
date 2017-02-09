@@ -30,6 +30,17 @@
 		01658F5B1E4971BA001E0D35 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 01658F571E4971BA001E0D35 /* 2.png */; };
 		01658F5C1E4971BA001E0D35 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 01658F581E4971BA001E0D35 /* 3.png */; };
 		01658F5D1E4971BA001E0D35 /* modify.png in Resources */ = {isa = PBXBuildFile; fileRef = 01658F591E4971BA001E0D35 /* modify.png */; };
+		01C5D2511E4B1D7800CB23A8 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 01C5D23F1E4B1D7800CB23A8 /* MJRefresh.bundle */; };
+		01C5D2521E4B1D7800CB23A8 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D2421E4B1D7800CB23A8 /* MJRefreshBaseView.m */; };
+		01C5D2531E4B1D7800CB23A8 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D2441E4B1D7800CB23A8 /* MJRefreshConst.m */; };
+		01C5D2541E4B1D7800CB23A8 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D2461E4B1D7800CB23A8 /* MJRefreshFooterView.m */; };
+		01C5D2551E4B1D7800CB23A8 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D2481E4B1D7800CB23A8 /* MJRefreshHeaderView.m */; };
+		01C5D2561E4B1D7800CB23A8 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D24A1E4B1D7800CB23A8 /* UIScrollView+MJExtension.m */; };
+		01C5D2571E4B1D7800CB23A8 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D24C1E4B1D7800CB23A8 /* UIScrollView+MJRefresh.m */; };
+		01C5D2581E4B1D7800CB23A8 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D24E1E4B1D7800CB23A8 /* UIView+MJExtension.m */; };
+		01C5D2591E4B1D7800CB23A8 /* TSCatagoryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D2501E4B1D7800CB23A8 /* TSCatagoryScrollView.m */; };
+		01C5D25C1E4B1DAB00CB23A8 /* TSHorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D25B1E4B1DAB00CB23A8 /* TSHorButton.m */; };
+		01C5D25F1E4B1DEC00CB23A8 /* UIFont+TSUIFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C5D25E1E4B1DEC00CB23A8 /* UIFont+TSUIFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +81,28 @@
 		01658F571E4971BA001E0D35 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		01658F581E4971BA001E0D35 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		01658F591E4971BA001E0D35 /* modify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modify.png; sourceTree = "<group>"; };
+		01C5D23F1E4B1D7800CB23A8 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		01C5D2401E4B1D7800CB23A8 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		01C5D2411E4B1D7800CB23A8 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		01C5D2421E4B1D7800CB23A8 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		01C5D2431E4B1D7800CB23A8 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		01C5D2441E4B1D7800CB23A8 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		01C5D2451E4B1D7800CB23A8 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		01C5D2461E4B1D7800CB23A8 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		01C5D2471E4B1D7800CB23A8 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		01C5D2481E4B1D7800CB23A8 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		01C5D2491E4B1D7800CB23A8 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		01C5D24A1E4B1D7800CB23A8 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		01C5D24B1E4B1D7800CB23A8 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		01C5D24C1E4B1D7800CB23A8 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		01C5D24D1E4B1D7800CB23A8 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		01C5D24E1E4B1D7800CB23A8 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		01C5D24F1E4B1D7800CB23A8 /* TSCatagoryScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCatagoryScrollView.h; sourceTree = "<group>"; };
+		01C5D2501E4B1D7800CB23A8 /* TSCatagoryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCatagoryScrollView.m; sourceTree = "<group>"; };
+		01C5D25A1E4B1DAB00CB23A8 /* TSHorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHorButton.h; sourceTree = "<group>"; };
+		01C5D25B1E4B1DAB00CB23A8 /* TSHorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSHorButton.m; sourceTree = "<group>"; };
+		01C5D25D1E4B1DEC00CB23A8 /* UIFont+TSUIFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+TSUIFont.h"; sourceTree = "<group>"; };
+		01C5D25E1E4B1DEC00CB23A8 /* UIFont+TSUIFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TSUIFont.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +119,8 @@
 		01658F0B1E4965DF001E0D35 = {
 			isa = PBXGroup;
 			children = (
-				01658F161E4965E0001E0D35 /* TestForCircleView */,
 				01658F151E4965E0001E0D35 /* Products */,
+				01658F161E4965E0001E0D35 /* TestForCircleView */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,10 +135,11 @@
 		01658F161E4965E0001E0D35 /* TestForCircleView */ = {
 			isa = PBXGroup;
 			children = (
-				01658F551E4971BA001E0D35 /* Resources */,
 				01658F2E1E4965EC001E0D35 /* Controller */,
 				01658F301E496602001E0D35 /* Model */,
+				01658F551E4971BA001E0D35 /* Resources */,
 				01658F171E4965E0001E0D35 /* Supporting Files */,
+				01C5D23D1E4B1D7800CB23A8 /* Vendor */,
 				01658F2F1E4965F9001E0D35 /* View */,
 				01658F1A1E4965E0001E0D35 /* AppDelegate.h */,
 				01658F1B1E4965E0001E0D35 /* AppDelegate.m */,
@@ -130,6 +164,8 @@
 			children = (
 				01658F311E49662D001E0D35 /* BaseTableViewController.h */,
 				01658F321E49662D001E0D35 /* BaseTableViewController.m */,
+				01658F521E4969F1001E0D35 /* TPGCircleViewController.h */,
+				01658F531E4969F1001E0D35 /* TPGCircleViewController.m */,
 				01658F3A1E496682001E0D35 /* TPGFansViewController.h */,
 				01658F3B1E496682001E0D35 /* TPGFansViewController.m */,
 				01658F371E496675001E0D35 /* TPGFollowsViewController.h */,
@@ -138,8 +174,6 @@
 				01658F351E49664A001E0D35 /* TPGTrendViewController.m */,
 				01658F1D1E4965E0001E0D35 /* ViewController.h */,
 				01658F1E1E4965E0001E0D35 /* ViewController.m */,
-				01658F521E4969F1001E0D35 /* TPGCircleViewController.h */,
-				01658F531E4969F1001E0D35 /* TPGCircleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +214,43 @@
 				01658F591E4971BA001E0D35 /* modify.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		01C5D23D1E4B1D7800CB23A8 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				01C5D23E1E4B1D7800CB23A8 /* MJRefresh */,
+				01C5D24F1E4B1D7800CB23A8 /* TSCatagoryScrollView.h */,
+				01C5D2501E4B1D7800CB23A8 /* TSCatagoryScrollView.m */,
+				01C5D25A1E4B1DAB00CB23A8 /* TSHorButton.h */,
+				01C5D25B1E4B1DAB00CB23A8 /* TSHorButton.m */,
+				01C5D25D1E4B1DEC00CB23A8 /* UIFont+TSUIFont.h */,
+				01C5D25E1E4B1DEC00CB23A8 /* UIFont+TSUIFont.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		01C5D23E1E4B1D7800CB23A8 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				01C5D23F1E4B1D7800CB23A8 /* MJRefresh.bundle */,
+				01C5D2401E4B1D7800CB23A8 /* MJRefresh.h */,
+				01C5D2411E4B1D7800CB23A8 /* MJRefreshBaseView.h */,
+				01C5D2421E4B1D7800CB23A8 /* MJRefreshBaseView.m */,
+				01C5D2431E4B1D7800CB23A8 /* MJRefreshConst.h */,
+				01C5D2441E4B1D7800CB23A8 /* MJRefreshConst.m */,
+				01C5D2451E4B1D7800CB23A8 /* MJRefreshFooterView.h */,
+				01C5D2461E4B1D7800CB23A8 /* MJRefreshFooterView.m */,
+				01C5D2471E4B1D7800CB23A8 /* MJRefreshHeaderView.h */,
+				01C5D2481E4B1D7800CB23A8 /* MJRefreshHeaderView.m */,
+				01C5D2491E4B1D7800CB23A8 /* UIScrollView+MJExtension.h */,
+				01C5D24A1E4B1D7800CB23A8 /* UIScrollView+MJExtension.m */,
+				01C5D24B1E4B1D7800CB23A8 /* UIScrollView+MJRefresh.h */,
+				01C5D24C1E4B1D7800CB23A8 /* UIScrollView+MJRefresh.m */,
+				01C5D24D1E4B1D7800CB23A8 /* UIView+MJExtension.h */,
+				01C5D24E1E4B1D7800CB23A8 /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +318,7 @@
 				01658F431E496755001E0D35 /* TPGPortraitHeaderView.xib in Resources */,
 				01658F4B1E4967B2001E0D35 /* TPGFriendsTableViewCell.xib in Resources */,
 				01658F461E496755001E0D35 /* TPGTrendTableViewCell.xib in Resources */,
+				01C5D2511E4B1D7800CB23A8 /* MJRefresh.bundle in Resources */,
 				01658F5D1E4971BA001E0D35 /* modify.png in Resources */,
 				01658F221E4965E0001E0D35 /* Main.storyboard in Resources */,
 				01658F5A1E4971BA001E0D35 /* 1.png in Resources */,
@@ -260,19 +332,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C5D2561E4B1D7800CB23A8 /* UIScrollView+MJExtension.m in Sources */,
+				01C5D2541E4B1D7800CB23A8 /* MJRefreshFooterView.m in Sources */,
 				01658F1F1E4965E0001E0D35 /* ViewController.m in Sources */,
+				01C5D2551E4B1D7800CB23A8 /* MJRefreshHeaderView.m in Sources */,
 				01658F1C1E4965E0001E0D35 /* AppDelegate.m in Sources */,
 				01658F451E496755001E0D35 /* TPGPortraitHeaderView.m in Sources */,
 				01658F331E49662D001E0D35 /* BaseTableViewController.m in Sources */,
 				01658F191E4965E0001E0D35 /* main.m in Sources */,
 				01658F4A1E4967B2001E0D35 /* TPGFriendsTableViewCell.m in Sources */,
 				01658F541E4969F1001E0D35 /* TPGCircleViewController.m in Sources */,
+				01C5D2591E4B1D7800CB23A8 /* TSCatagoryScrollView.m in Sources */,
+				01C5D2571E4B1D7800CB23A8 /* UIScrollView+MJRefresh.m in Sources */,
+				01C5D25F1E4B1DEC00CB23A8 /* UIFont+TSUIFont.m in Sources */,
+				01C5D25C1E4B1DAB00CB23A8 /* TSHorButton.m in Sources */,
+				01C5D2581E4B1D7800CB23A8 /* UIView+MJExtension.m in Sources */,
 				01658F3C1E496682001E0D35 /* TPGFansViewController.m in Sources */,
 				01658F511E49680F001E0D35 /* TPGTreandInfo.m in Sources */,
 				01658F441E496755001E0D35 /* TPGTrendTableViewCell.m in Sources */,
+				01C5D2521E4B1D7800CB23A8 /* MJRefreshBaseView.m in Sources */,
 				01658F361E49664A001E0D35 /* TPGTrendViewController.m in Sources */,
 				01658F391E496675001E0D35 /* TPGFollowsViewController.m in Sources */,
 				01658F501E49680F001E0D35 /* TPGContactInfo.m in Sources */,
+				01C5D2531E4B1D7800CB23A8 /* MJRefreshConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

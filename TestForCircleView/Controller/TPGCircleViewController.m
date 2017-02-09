@@ -14,24 +14,29 @@
 #import "TPGPortraitHeaderView.h"
 #import "TPGTreandInfo.h"
 #import "TPGContactInfo.h"
+#import "TSCatagoryScrollView.h"
 
 #define HEADER_VIEW_HEIGHT 181
 #define CATEGORY_HEIGHT 44
 #define USERINFO_HEIGHT 137
+#define USE_TSCATEGORY_VIEW   // 选择栏使用TSCategoryView
 
-@interface TPGCircleViewController ()<TableViewScrollingProtocol>
+@interface TPGCircleViewController ()<TableViewScrollingProtocol, TSCategoryScrollViewDelegate>
 
-@property (nonatomic, strong) TPGPortraitHeaderView *headerView;
+//@property (nonatomic, strong) TPGPortraitHeaderView *headerView;
 @property (nonatomic, strong) NSArray  *titleList;
 @property (nonatomic, strong) UIViewController *showingVC;
 @property (nonatomic, strong) NSMutableDictionary *offsetYDict; // 存储每个tableview在Y轴上的偏移量
 
 @property (nonatomic, strong) UIView *baseView; // 顶部视图
+@property (nonatomic, strong) TSCatagoryScrollView *categoryView;
 
 @end
 
 @implementation TPGCircleViewController
-
+{
+    NSMutableArray *_arrContentViews;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,6 +119,27 @@
     [self addChildViewController:trendViewController];
     [self addChildViewController:followsViewController];
     [self addChildViewController:fansViewController];
+    
+    _arrContentViews = [NSMutableArray arrayWithCapacity:0];
+    
+#ifdef USE_TSCATEGORY_VIEW
+//    trendViewController.tableView.tableHeaderView = nil;
+//    followsViewController.tableView.tableHeaderView = nil;
+//    fansViewController.tableView.tableHeaderView = nil;
+    
+//    CGRect trendRect = trendViewController.view.frame;
+//    trendRect.size.height -= HEADER_VIEW_HEIGHT-200;
+//    trendViewController.view.frame = trendRect;
+//    CGRect followsRect = followsViewController.view.frame;
+//    followsRect.size.height -= HEADER_VIEW_HEIGHT;
+//    followsViewController.view.frame = followsRect;
+//    CGRect fansRect = fansViewController.view.frame;
+//    fansRect.size.height -= HEADER_VIEW_HEIGHT;
+//    fansViewController.view.frame = fansRect;
+#endif
+    [_arrContentViews addObject:trendViewController.view];
+    [_arrContentViews addObject:followsViewController.view];
+    [_arrContentViews addObject:fansViewController.view];
 }
 
 - (void)addHeaderView
@@ -121,12 +147,40 @@
     // headerView
     _baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADER_VIEW_HEIGHT)];
     _baseView.backgroundColor = [UIColor whiteColor];
+#ifdef USE_TSCATEGORY_VIEW
+#else
     [self.view addSubview:_baseView];
+#endif
+    
     TPGPortraitHeaderView *headerView = [[[NSBundle mainBundle]loadNibNamed:@"TPGPortraitHeaderView" owner:self options:nil]objectAtIndex:0];
     headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, USERINFO_HEIGHT);
     [headerView reloadUserInfo:nil];
+#ifdef USE_TSCATEGORY_VIEW
     [_baseView addSubview:headerView];
+#else
+    [_baseView addSubview:headerView];
+#endif
     // segementControl
+#ifdef USE_TSCATEGORY_VIEW
+    NSArray *arrTitles = @[@"动态", @"关注", @"粉丝"];
+    _categoryView = [TSCatagoryScrollView scrollWithFrame:CGRectMake(0, CGRectGetMaxY(headerView.frame), self.view.frame.size.width, self.view.frame.size.height) withViews:_arrContentViews withButtonNames:arrTitles];
+    _categoryView.ts_selectButton = 0;
+    _categoryView.delegateCategoryView = self;
+    // 重置frame
+    CGRect scrollUpRect = _categoryView.scrollUpView.frame;
+    scrollUpRect.origin.y = CGRectGetMaxY(headerView.frame);
+    _categoryView.scrollUpView.frame = scrollUpRect;
+    [_baseView addSubview:_categoryView.scrollUpView];
+    
+    CGRect scrollDownRect = _categoryView.scrollDownView.frame;
+    scrollDownRect.origin.y = 0;
+    scrollDownRect.size.height = self.view.frame.size.height - 64;
+    _categoryView.scrollDownView.frame = scrollDownRect;
+    [self.view addSubview:_categoryView.scrollDownView];
+    
+    [self.view addSubview:_baseView];
+
+#else
     CGFloat gap = 100;
     CGFloat btnWidth = (self.view.frame.size.width-gap*2)/3;
     for (int i = 0; i < 3; i++) {
@@ -145,6 +199,7 @@
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _baseView.frame.size.height-1, self.view.frame.size.width, 1)];
     lineView.backgroundColor = [UIColor lightGrayColor];
     [_baseView addSubview:lineView];
+#endif
 }
 
 - (void)didSelectCategory:(id)sender
@@ -275,6 +330,37 @@
 - (void)tableViewWillBeginDecelerating:(UITableView *)tableView offsetY:(CGFloat)offsetY
 {
     _baseView.userInteractionEnabled = NO;
+}
+
+#pragma mark - TSCategoryScrollViewDelegate
+- (void)reloadNewViewDataWithIndex:(NSInteger)scrollViewIndex
+{
+
+//    [_showingVC.view removeFromSuperview];
+    BaseTableViewController *newVC = [self.childViewControllers objectAtIndex:scrollViewIndex];
+    if (!newVC.view.superview) {
+//        [self.view addSubview:newVC.view];
+//        newVC.view.frame = self.view.bounds;
+    }
+    [self.view addSubview:_baseView];
+
+    NSString *nextAddressStr = [NSString stringWithFormat:@"%p", newVC];
+    CGFloat offsetY = [_offsetYDict[nextAddressStr] floatValue];
+    newVC.tableView.contentOffset = CGPointMake(0, offsetY);
+//    
+//    if (offsetY <= headerImgHeight - topBarHeight) {
+//        [newVC.view addSubview:_baseView];
+//        CGRect rect = _baseView.frame;
+//        rect.origin.y = 0;
+//        self.baseView.frame = rect;
+//    } else {
+//        [self.view insertSubview:_baseView belowSubview:self.view];
+//        CGRect rect = self.baseView.frame;
+//        rect.origin.y = - headerImgHeight;
+//        self.baseView.frame = rect;
+//    }
+    
+//    _showingVC = newVC;
 }
 
 #pragma mark - Getter/Setter
