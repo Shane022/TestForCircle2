@@ -166,6 +166,7 @@
     _categoryView = [TSCatagoryScrollView scrollWithFrame:CGRectMake(0, CGRectGetMaxY(headerView.frame), self.view.frame.size.width, self.view.frame.size.height) withViews:_arrContentViews withButtonNames:arrTitles];
     _categoryView.ts_selectButton = 0;
     _categoryView.delegateCategoryView = self;
+    _showingVC = self.childViewControllers[0];
     // 重置frame
     CGRect scrollUpRect = _categoryView.scrollUpView.frame;
     scrollUpRect.origin.y = CGRectGetMaxY(headerView.frame);
@@ -335,32 +336,14 @@
 #pragma mark - TSCategoryScrollViewDelegate
 - (void)reloadNewViewDataWithIndex:(NSInteger)scrollViewIndex
 {
-
-//    [_showingVC.view removeFromSuperview];
-    BaseTableViewController *newVC = [self.childViewControllers objectAtIndex:scrollViewIndex];
-    if (!newVC.view.superview) {
-//        [self.view addSubview:newVC.view];
-//        newVC.view.frame = self.view.bounds;
-    }
     [self.view addSubview:_baseView];
-
+    BaseTableViewController *newVC = [self.childViewControllers objectAtIndex:scrollViewIndex];
     NSString *nextAddressStr = [NSString stringWithFormat:@"%p", newVC];
     CGFloat offsetY = [_offsetYDict[nextAddressStr] floatValue];
     newVC.tableView.contentOffset = CGPointMake(0, offsetY);
-//    
-//    if (offsetY <= headerImgHeight - topBarHeight) {
-//        [newVC.view addSubview:_baseView];
-//        CGRect rect = _baseView.frame;
-//        rect.origin.y = 0;
-//        self.baseView.frame = rect;
-//    } else {
-//        [self.view insertSubview:_baseView belowSubview:self.view];
-//        CGRect rect = self.baseView.frame;
-//        rect.origin.y = - headerImgHeight;
-//        self.baseView.frame = rect;
-//    }
+
     
-//    _showingVC = newVC;
+    _showingVC = newVC;
 }
 
 #pragma mark - Getter/Setter

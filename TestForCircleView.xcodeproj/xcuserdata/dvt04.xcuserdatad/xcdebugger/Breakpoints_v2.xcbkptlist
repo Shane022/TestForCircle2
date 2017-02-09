@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508315326.591256"
+            timestampString = "508320845.005762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-tableViewScroll:offsetY:"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508315326.591256"
+            timestampString = "508320845.005762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-tableViewDidEndDragging:offsetY:"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508315326.591256"
+            timestampString = "508320845.005762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "-tableViewScroll:offsetY:"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508319739.532895"
+            timestampString = "508321644.58079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "343"
@@ -96,16 +96,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508319739.532895"
+            timestampString = "508320845.005762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-reloadNewViewDataWithIndex:"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "-tableViewDidEndDragging:offsetY:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -116,12 +116,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestForCircleView/Controller/TPGCircleViewController.m"
-            timestampString = "508319739.532895"
+            timestampString = "508320845.005762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
-            landmarkName = "-reloadNewViewDataWithIndex:"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "-tableViewDidEndDecelerating:offsetY:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
