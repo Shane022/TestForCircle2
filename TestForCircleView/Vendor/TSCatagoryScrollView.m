@@ -314,7 +314,7 @@ static CGFloat DefaultSelectedLineHeight = 2.f;
         
         if ([self.ts_views[i] isKindOfClass:[UIScrollView class]]) {
             UIScrollView *temp = (UIScrollView *)self.ts_views[i];
-            [self addHeader:temp];
+//            [self addHeader:temp];
             [self addFooter:temp];
             CGRect rect = CGRectMake(_screenWidth*i, 0, self.scrollDownView.frame.size.width, self.scrollDownView.frame.size.height);
             temp.frame = rect;

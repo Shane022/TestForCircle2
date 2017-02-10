@@ -19,7 +19,7 @@
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerImgHeight + switchBarHeight)];
     headerView.backgroundColor = [UIColor whiteColor];
-//    self.tableView.tableHeaderView = headerView;
+    self.tableView.tableHeaderView = headerView;
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     if (self.tableView.contentSize.height < kScreenHeight + headerImgHeight - topBarHeight ) {

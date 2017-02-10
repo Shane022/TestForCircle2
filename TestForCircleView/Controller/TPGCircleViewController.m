@@ -121,22 +121,6 @@
     [self addChildViewController:fansViewController];
     
     _arrContentViews = [NSMutableArray arrayWithCapacity:0];
-    
-#ifdef USE_TSCATEGORY_VIEW
-//    trendViewController.tableView.tableHeaderView = nil;
-//    followsViewController.tableView.tableHeaderView = nil;
-//    fansViewController.tableView.tableHeaderView = nil;
-    
-//    CGRect trendRect = trendViewController.view.frame;
-//    trendRect.size.height -= HEADER_VIEW_HEIGHT-200;
-//    trendViewController.view.frame = trendRect;
-//    CGRect followsRect = followsViewController.view.frame;
-//    followsRect.size.height -= HEADER_VIEW_HEIGHT;
-//    followsViewController.view.frame = followsRect;
-//    CGRect fansRect = fansViewController.view.frame;
-//    fansRect.size.height -= HEADER_VIEW_HEIGHT;
-//    fansViewController.view.frame = fansRect;
-#endif
     [_arrContentViews addObject:trendViewController.view];
     [_arrContentViews addObject:followsViewController.view];
     [_arrContentViews addObject:fansViewController.view];
@@ -144,6 +128,7 @@
 
 - (void)addHeaderView
 {
+    
     // headerView
     _baseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADER_VIEW_HEIGHT)];
     _baseView.backgroundColor = [UIColor whiteColor];
@@ -155,13 +140,9 @@
     TPGPortraitHeaderView *headerView = [[[NSBundle mainBundle]loadNibNamed:@"TPGPortraitHeaderView" owner:self options:nil]objectAtIndex:0];
     headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, USERINFO_HEIGHT);
     [headerView reloadUserInfo:nil];
-#ifdef USE_TSCATEGORY_VIEW
     [_baseView addSubview:headerView];
-#else
-    [_baseView addSubview:headerView];
-#endif
+
     // segementControl
-#ifdef USE_TSCATEGORY_VIEW
     NSArray *arrTitles = @[@"动态", @"关注", @"粉丝"];
     _categoryView = [TSCatagoryScrollView scrollWithFrame:CGRectMake(0, CGRectGetMaxY(headerView.frame), self.view.frame.size.width, self.view.frame.size.height) withViews:_arrContentViews withButtonNames:arrTitles];
     _categoryView.ts_selectButton = 0;
@@ -174,38 +155,14 @@
     [_baseView addSubview:_categoryView.scrollUpView];
     
     CGRect scrollDownRect = _categoryView.scrollDownView.frame;
-#if 0
     scrollDownRect.origin.y = 0;
     scrollDownRect.size.height = self.view.frame.size.height - 64;
-#else
-    scrollDownRect.origin.y = CGRectGetMaxY(_baseView.frame);
-    scrollDownRect.size.height = self.view.frame.size.height - 64 - headerImgHeight;
-#endif
     _categoryView.scrollDownView.frame = scrollDownRect;
+    _categoryView.scrollDownView.scrollEnabled = NO;
     [self.view addSubview:_categoryView.scrollDownView];
     
-    [self.view addSubview:_baseView];
+    [_categoryView.scrollDownView.subviews[0] addSubview:_baseView];
 
-#else
-    CGFloat gap = 100;
-    CGFloat btnWidth = (self.view.frame.size.width-gap*2)/3;
-    for (int i = 0; i < 3; i++) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setTitle:[_titleList objectAtIndex:i] forState:UIControlStateNormal];
-        btn.frame = CGRectMake(gap+i*btnWidth, CGRectGetMaxY(headerView.frame), btnWidth, CATEGORY_HEIGHT);
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(didSelectCategory:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = 1000+i;
-        [_baseView addSubview:btn];
-        if (i == 0) {
-            [self didSelectCategory:btn];
-        }
-    }
-    // lineView
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, _baseView.frame.size.height-1, self.view.frame.size.width, 1)];
-    lineView.backgroundColor = [UIColor lightGrayColor];
-    [_baseView addSubview:lineView];
-#endif
 }
 
 - (void)didSelectCategory:(id)sender
@@ -241,34 +198,26 @@
 #pragma mark - <TableViewScrollingProtocol>
 - (void)tableViewScroll:(UITableView *)tableView offsetY:(CGFloat)offsetY
 {
-    if (offsetY > headerImgHeight - topBarHeight) {
+    if (offsetY > headerImgHeight) {
         if (![_baseView.superview isEqual:self.view]) {
-            [self.view insertSubview:_baseView belowSubview:self.view];
+            [self.view insertSubview:_baseView belowSubview:self.navigationController.view];
+//            [tableView addSubview:_baseView];
         }
         CGRect rect = self.baseView.frame;
         rect.origin.y = - headerImgHeight;
         self.baseView.frame = rect;
-        
-        CGRect tableViewRect = _categoryView.scrollDownView.frame;
-        tableViewRect.origin.y = CGRectGetMaxY(_baseView.frame);
-        tableViewRect.size.height = self.view.frame.size.height - switchBarHeight;
-        _categoryView.scrollDownView.frame = tableViewRect;
     } else {
         if (![_baseView.superview isEqual:tableView]) {
-            for (UIView *view in tableView.subviews) {
-                if ([view isKindOfClass:[UIImageView class]]) {
-                    [tableView insertSubview:_baseView belowSubview:view];
-                    break;
-                }
-            }
+//            for (UIView *view in tableView.subviews) {
+//                [tableView addSubview:_baseView];
+//            }
+            [tableView addSubview:_baseView];
+
         }
         CGRect rect = self.baseView.frame;
         rect.origin.y = 0;
         self.baseView.frame = rect;
         
-        CGRect tableViewRect = _categoryView.scrollDownView.frame;
-        tableViewRect.origin.y = CGRectGetMaxY(_baseView.frame);
-        _categoryView.scrollDownView.frame = tableViewRect;
     }
 }
 
@@ -277,16 +226,16 @@
     _baseView.userInteractionEnabled = YES;
     
     NSString *addressStr = [NSString stringWithFormat:@"%p", _showingVC];
-    if (offsetY > headerImgHeight - topBarHeight) {
+    if (offsetY > headerImgHeight) {
         [self.offsetYDict enumerateKeysAndObjectsUsingBlock:^(NSString  *key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if ([key isEqualToString:addressStr]) {
                 _offsetYDict[key] = @(offsetY);
-            } else if ([_offsetYDict[key] floatValue] <= headerImgHeight - topBarHeight) {
+            } else if ([_offsetYDict[key] floatValue] <= headerImgHeight) {
                 _offsetYDict[key] = @(headerImgHeight);
             }
         }];
     } else {
-        if (offsetY <= headerImgHeight - topBarHeight) {
+        if (offsetY <= headerImgHeight) {
             [self.offsetYDict enumerateKeysAndObjectsUsingBlock:^(NSString  *key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 _offsetYDict[key] = @(offsetY);
             }];
@@ -304,16 +253,16 @@
     _baseView.userInteractionEnabled = YES;
     
     NSString *addressStr = [NSString stringWithFormat:@"%p", _showingVC];
-    if (offsetY > headerImgHeight - topBarHeight) {
+    if (offsetY > headerImgHeight) {
         [self.offsetYDict enumerateKeysAndObjectsUsingBlock:^(NSString  *key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if ([key isEqualToString:addressStr]) {
                 _offsetYDict[key] = @(offsetY);
-            } else if ([_offsetYDict[key] floatValue] <= headerImgHeight - topBarHeight) {
+            } else if ([_offsetYDict[key] floatValue] <= headerImgHeight) {
                 _offsetYDict[key] = @(headerImgHeight);
             }
         }];
     } else {
-        if (offsetY <= headerImgHeight - topBarHeight) {
+        if (offsetY <= headerImgHeight) {
             [self.offsetYDict enumerateKeysAndObjectsUsingBlock:^(NSString  *key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 _offsetYDict[key] = @(offsetY);
             }];
@@ -326,15 +275,26 @@
     _baseView.userInteractionEnabled = NO;
 }
 
-#pragma mark - TSCategoryScrollViewDelegate
+#pragma mark - <TSCategoryScrollViewDelegate>
 - (void)reloadNewViewDataWithIndex:(NSInteger)scrollViewIndex
 {
-    [self.view addSubview:_baseView];
     BaseTableViewController *newVC = [self.childViewControllers objectAtIndex:scrollViewIndex];
     NSString *nextAddressStr = [NSString stringWithFormat:@"%p", newVC];
     CGFloat offsetY = [_offsetYDict[nextAddressStr] floatValue];
     newVC.tableView.contentOffset = CGPointMake(0, offsetY);
     
+    if (offsetY <= headerImgHeight) {
+        [_categoryView.scrollDownView.subviews[scrollViewIndex] addSubview:_baseView];
+        
+        CGRect rect = self.baseView.frame;
+        rect.origin.y = 0;
+        self.baseView.frame = rect;
+    }  else {
+        [self.view insertSubview:_baseView belowSubview:self.navigationController.view];
+        CGRect rect = self.baseView.frame;
+        rect.origin.y = - headerImgHeight;
+        self.baseView.frame = rect;
+    }
     _showingVC = newVC;
 }
 
