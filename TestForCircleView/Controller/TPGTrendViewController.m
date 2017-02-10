@@ -31,6 +31,11 @@
     return self;
 }
 
+- (void)test
+{
+    NSLog(@"test");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
@@ -52,6 +57,7 @@
         cell = [[TPGTrendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"trendTableViewCell"
                 ];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell reloadTrendInfo:[_arrDataSource objectAtIndex:indexPath.row]];
     return cell;
 }

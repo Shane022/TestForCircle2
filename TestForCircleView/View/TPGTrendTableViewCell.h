@@ -10,6 +10,7 @@
 #import "TPGTreandInfo.h"
 
 @interface TPGTrendTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *potraitImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;

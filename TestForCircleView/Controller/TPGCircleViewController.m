@@ -174,8 +174,13 @@
     [_baseView addSubview:_categoryView.scrollUpView];
     
     CGRect scrollDownRect = _categoryView.scrollDownView.frame;
+#if 0
     scrollDownRect.origin.y = 0;
     scrollDownRect.size.height = self.view.frame.size.height - 64;
+#else
+    scrollDownRect.origin.y = CGRectGetMaxY(_baseView.frame);
+    scrollDownRect.size.height = self.view.frame.size.height - 64 - headerImgHeight;
+#endif
     _categoryView.scrollDownView.frame = scrollDownRect;
     [self.view addSubview:_categoryView.scrollDownView];
     
@@ -243,6 +248,11 @@
         CGRect rect = self.baseView.frame;
         rect.origin.y = - headerImgHeight;
         self.baseView.frame = rect;
+        
+        CGRect tableViewRect = _categoryView.scrollDownView.frame;
+        tableViewRect.origin.y = CGRectGetMaxY(_baseView.frame);
+        tableViewRect.size.height = self.view.frame.size.height - switchBarHeight;
+        _categoryView.scrollDownView.frame = tableViewRect;
     } else {
         if (![_baseView.superview isEqual:tableView]) {
             for (UIView *view in tableView.subviews) {
@@ -255,28 +265,11 @@
         CGRect rect = self.baseView.frame;
         rect.origin.y = 0;
         self.baseView.frame = rect;
+        
+        CGRect tableViewRect = _categoryView.scrollDownView.frame;
+        tableViewRect.origin.y = CGRectGetMaxY(_baseView.frame);
+        _categoryView.scrollDownView.frame = tableViewRect;
     }
-    
-    // header拉下来时隐藏navigationBar渐变消失；
-//    if (offsetY>0) {
-//        CGFloat alpha = offsetY/136;
-//        self.navView.alpha = alpha;
-//        
-//        if (alpha > 0.6 && !_stausBarColorIsBlack) {
-//            self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-//            _stausBarColorIsBlack = YES;
-//            [self setNeedsStatusBarAppearanceUpdate];
-//        } else if (alpha <= 0.6 && _stausBarColorIsBlack) {
-//            self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//            _stausBarColorIsBlack = NO;
-//            [self setNeedsStatusBarAppearanceUpdate];
-//        }
-//    } else {
-//        self.navView.alpha = 0;
-//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//        _stausBarColorIsBlack = NO;
-//        [self setNeedsStatusBarAppearanceUpdate];
-//    }
 }
 
 - (void)tableViewDidEndDragging:(UITableView *)tableView offsetY:(CGFloat)offsetY
@@ -341,7 +334,6 @@
     NSString *nextAddressStr = [NSString stringWithFormat:@"%p", newVC];
     CGFloat offsetY = [_offsetYDict[nextAddressStr] floatValue];
     newVC.tableView.contentOffset = CGPointMake(0, offsetY);
-
     
     _showingVC = newVC;
 }

@@ -25,9 +25,12 @@
 - (void)reloadTrendInfo:(TPGTreandInfo *)trendInfo
 {
     // test
+    [self layoutIfNeeded];
     self.potraitImageView.image = [UIImage imageNamed:@"1"];
     self.posterImageView.image = [UIImage imageNamed:@"2"];
-
+    self.potraitImageView.layer.masksToBounds = YES;
+    self.potraitImageView.layer.cornerRadius = self.potraitImageView.frame.size.width/2;
+    
     self.nameLabel.text = trendInfo.userName;
     self.timeLabel.text = trendInfo.time;
     self.contentLabel.text = trendInfo.content;

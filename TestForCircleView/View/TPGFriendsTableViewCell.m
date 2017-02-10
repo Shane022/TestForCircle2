@@ -12,12 +12,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.btnFollow.layer.masksToBounds = YES;
+    self.btnFollow.layer.cornerRadius = 4;
 }
 
 - (void)reloadContactInfo:(TPGContactInfo *)contactInfo
 {
+    [self layoutIfNeeded];
     self.portraitImageView.image = [UIImage imageNamed:contactInfo.potraitUrl];
+    self.portraitImageView.layer.masksToBounds = YES;
+    self.portraitImageView.layer.cornerRadius = self.portraitImageView.frame.size.width/2;
+
     self.nickNameLabel.text = @"测试昵称";
     self.contactNameLabel.text = [NSString stringWithFormat:@"手机好友:%@ %@", contactInfo.contactGivenName, contactInfo.contactFamilyName];
 }

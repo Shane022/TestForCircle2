@@ -18,9 +18,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-Ip-MPT">
-                                <frame key="frameInset" minX="164" minY="208" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-Ip-MPT">
                                 <state key="normal" title="enter"/>
                                 <connections>
                                     <action selector="onHitBtnEnterCircleView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJZ-H5-EOa"/>
@@ -28,6 +26,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OgY-Ip-MPT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sg6-H9-Pcg"/>
+                            <constraint firstItem="OgY-Ip-MPT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="olL-bb-NPN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ED0-Xs-kEI"/>
                 </viewController>
@@ -40,7 +42,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b34-kI-ATv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="5he-i6-ONW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="5he-i6-ONW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
